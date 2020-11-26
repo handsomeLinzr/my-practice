@@ -9,4 +9,6 @@ package com.example.pattern.factory.simplefactory;
  * @since V1.0.0
  */
 public class aTest {
+
+
 }
