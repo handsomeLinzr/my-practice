@@ -2,6 +2,9 @@ package com.example.pattern.factory.simplefactory;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Description:
  *
