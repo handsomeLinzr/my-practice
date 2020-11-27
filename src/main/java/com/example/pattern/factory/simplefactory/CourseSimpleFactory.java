@@ -1,7 +1,7 @@
 package com.example.pattern.factory.simplefactory;
 
 /**
- * Description: 简单工厂
+ * Description: 简单工厂，多个对象塞在一个工厂
  *
  * @author Linzr
  * @version V1.0.0

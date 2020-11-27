@@ -1,7 +1,7 @@
 package com.example.pattern.factory.factorymethod;
 
 /**
- * Description: JAVA 课程工厂
+ * Description: JAVA 课程工厂，一个对象对应一个工厂
  *
  * @author Linzr
  * @version V1.0.0
