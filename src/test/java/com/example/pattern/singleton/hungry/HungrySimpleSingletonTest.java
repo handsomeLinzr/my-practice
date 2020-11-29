@@ -26,7 +26,7 @@ public class HungrySimpleSingletonTest {
         }
     }
 
-    // 通过反射强制获得构造方法访问
+    // 通过反射强制获得构造方法访问, 只能通过在构造方法内进行判断调用方法进行避免
     @Test
     public void getInstance2() {
         try {
