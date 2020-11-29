@@ -7,10 +7,13 @@ package com.example.pattern.singleton.hungry;
 public class HungryConstructorSingleton {
 
     private HungryConstructorSingleton() {
-        StackTraceElement stackTraceElement = (Thread.currentThread().getStackTrace())[2];
+        /*StackTraceElement stackTraceElement = (Thread.currentThread().getStackTrace())[2];
         if (!HungryConstructorSingleton.class.getName().equals(stackTraceElement.getClassName()) ||
                 !"<clinit>".equals(stackTraceElement.getMethodName())) {
             throw new RuntimeException("不允许");
+        }*/
+        if (HUNGRY_CONSTRUCTOR_SINGLETON != null) {
+            throw new RuntimeException("不允许重复创建");
         }
     }
 

@@ -1,0 +1,27 @@
+package com.example.pattern.singleton.lazy;
+
+/**
+ * double check lock 双重校验锁
+ * @author LZR
+ * @date 2020/11/29-17:57
+ */
+public class LazyDCLSingleton {
+
+    private LazyDCLSingleton() {}
+
+    // 避免指令重排序
+    private volatile static LazyDCLSingleton lazyDCLSingleton = null;
+
+    public static LazyDCLSingleton getInstance() {
+        // 判断是否已经被实例化
+        if (lazyDCLSingleton == null) {
+            synchronized (LazyDCLSingleton.class) {
+                // 再一次检查，毕竟有其他线程先一步实例化了实例
+                if (lazyDCLSingleton == null) {
+                    lazyDCLSingleton = new LazyDCLSingleton();
+                }
+            }
+        }
+        return lazyDCLSingleton;
+    }
+}
