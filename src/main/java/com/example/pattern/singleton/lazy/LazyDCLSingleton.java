@@ -9,7 +9,7 @@ public class LazyDCLSingleton {
 
     private LazyDCLSingleton() {}
 
-    // 避免指令重排序
+    // 避免指令重排序,避免出现 当对象先建立连接但是还没有初始化的时候，另一个线程访问到这个实例不为空直接返回，此时其实该实例只有指向内存地址但还没初始化
     private volatile static LazyDCLSingleton lazyDCLSingleton = null;
 
     public static LazyDCLSingleton getInstance() {

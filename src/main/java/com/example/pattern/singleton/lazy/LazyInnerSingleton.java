@@ -11,16 +11,17 @@ package com.example.pattern.singleton.lazy;
 public class LazyInnerSingleton {
 
     private LazyInnerSingleton() {
-        if (Inner.LAZY_INNER_SINGLETON != null) {
+        if (Inner.LAZY != null) {
             throw new RuntimeException("不允许创建");
         }
     }
 
     public static LazyInnerSingleton getInstance() {
-        return Inner.LAZY_INNER_SINGLETON;
+        return Inner.LAZY;
     }
 
     private static class Inner {
-        public static final LazyInnerSingleton LAZY_INNER_SINGLETON = new LazyInnerSingleton();
+        private static final LazyInnerSingleton LAZY = new LazyInnerSingleton();
     }
+
 }
