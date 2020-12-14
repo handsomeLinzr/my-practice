@@ -1,6 +1,8 @@
 package com.example.pattern.proxy.dynamic.cglibproxy;
 
+import net.sf.cglib.core.DebuggingClassWriter;
 import org.junit.jupiter.api.Test;
+import sun.misc.ProxyGenerator;
 
 /**
  * Description:
@@ -14,6 +16,9 @@ public class CglibProxyTest {
 
     @Test
     public void test() {
+        // 先设置才会生效
+        System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "/Users/lzr/cglib_code");
+
         MyMethodInterceptor myMethodInterceptor = new MyMethodInterceptor();
         People proxy = (People) myMethodInterceptor.getProxy(People.class);
         proxy.marryWife();
