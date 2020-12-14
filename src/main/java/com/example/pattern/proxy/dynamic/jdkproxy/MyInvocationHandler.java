@@ -24,6 +24,9 @@ public class MyInvocationHandler implements InvocationHandler {
         return Proxy.newProxyInstance(this.target.getClass().getClassLoader(), this.target.getClass().getInterfaces(), this);
     }
 
+    /*
+     * proxy:代理对象；   method：被代理的方法；    args：方法参数
+     */
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("before");
