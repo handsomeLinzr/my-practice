@@ -1,7 +1,7 @@
 package com.example.pattern.strategy.promotion;
 
 /**
- * Description: 优惠活动
+ * Description: 促销活动
  *
  * @author Linzr
  * @version V1.0.0
@@ -15,6 +15,9 @@ public class PromotionActive {
         this.promotionStrategy = promotionStrategy;
     }
 
+    /**
+     * 促销形式
+     */
     public void exec() {
         this.promotionStrategy.doPromotion();
     }

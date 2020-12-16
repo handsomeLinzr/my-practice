@@ -4,7 +4,6 @@ import com.example.pattern.proxy.dbroute.proxy.DynamicRouteSourceJdkDynamicInvoc
 import com.example.pattern.proxy.dbroute.proxy.DynamicRouteSourceMethodInterceptor;
 import com.example.pattern.proxy.dbroute.proxy.DynamicRouteSourceStaticProxy;
 import org.junit.jupiter.api.Test;
-import sun.jvm.hotspot.asm.ImmediateOrRegister;
 
 import java.time.LocalDate;
 
