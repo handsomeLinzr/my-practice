@@ -27,17 +27,13 @@ public class Event {
     // 事件发生时间
     private long time;
 
-    public Event(Object target, Method callback) {
+    public Event(String trigger, Object target, Method callback) {
         this.target = target;
         this.callback = callback;
     }
 
     public Method getCallback() {
         return callback;
-    }
-
-    public Object getSource() {
-        return source;
     }
 
     public void setSource(Object source) {

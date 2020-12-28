@@ -32,7 +32,7 @@ public class EventListener {
     }
 
     private void addListener(String trigger, Object target, Method method) {
-        eventMap.put(trigger, new Event(target, method));
+        eventMap.put(trigger, new Event(trigger, target, method));
     }
 
     // 首字母大写
