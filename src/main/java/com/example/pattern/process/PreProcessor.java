@@ -10,7 +10,7 @@ public class PreProcessor extends Thread implements IRequestProcessor{
 
     private IRequestProcessor nextProcessor;
     private LinkedBlockingQueue<Request> queue = new LinkedBlockingQueue<>();
-    private boolean flag = true;
+    private volatile boolean flag = true;
 
     public PreProcessor(IRequestProcessor nextProcessor) {
         this.nextProcessor = nextProcessor;

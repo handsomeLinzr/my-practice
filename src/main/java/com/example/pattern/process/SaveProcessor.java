@@ -9,7 +9,7 @@ public class SaveProcessor extends Thread implements IRequestProcessor{
 
     private IRequestProcessor nextProcessor;
     private LinkedBlockingQueue<Request> queue = new LinkedBlockingQueue<>();
-    private boolean flag = true;
+    private volatile boolean flag = true;
 
     public SaveProcessor(IRequestProcessor nextProcessor) {
         this.nextProcessor = nextProcessor;
