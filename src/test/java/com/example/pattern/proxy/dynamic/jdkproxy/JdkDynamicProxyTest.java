@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Test;
 import sun.misc.ProxyGenerator;
 
 import java.io.FileOutputStream;
+import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
 
 /**
  * Description:
