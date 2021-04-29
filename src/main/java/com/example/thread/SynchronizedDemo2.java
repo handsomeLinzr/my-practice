@@ -12,6 +12,7 @@ public class SynchronizedDemo2  {
                 e.printStackTrace();
             }
             count++;
+//            System.out.println(System.identityHashCode(count));
         }
     }
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -20,6 +21,5 @@ public class SynchronizedDemo2  {
         }
         Thread.sleep(5000);
         System.out.println("result:"+count);
-
     }
 }
