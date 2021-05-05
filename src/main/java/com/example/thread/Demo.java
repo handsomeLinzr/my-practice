@@ -1,7 +1,11 @@
 package com.example.thread;
 
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Demo {
-    private static int i = 0;
+//    private static int i = 0;
     public static volatile boolean stop = false;
 
     public static void main(String[] args) throws InterruptedException {
@@ -43,21 +47,6 @@ public class Demo {
 //            System.out.println(i);
 //        });
 //        i = 100;
-//        thread.start();
-
-        Thread threadA = new Thread(()->{  // join原则
-            System.out.println("threadA");
-        });
-        Thread threadB = new Thread(()->{
-            System.out.println("threadB");
-        });
-        Thread threadC = new Thread(()->{
-            System.out.println("threadC");
-        });
-        threadA.start();
-        threadA.join();  //阻塞主线程 wait/notify
-        threadB.start();
-        threadB.join();
-        threadC.start();
+//        thread.start();=
     }
 }
