@@ -18,17 +18,17 @@ public class Demo {
 //        new Thread(new ThreadA(lock)).start();
 //        new Thread(new ThreadB(lock)).start();
 
-//        // 加 volatile 能让线程停  volatile原则
-//        Thread thread = new Thread(()->{
-//            int i = 0;
-//            while (!stop) {
-//                i ++;
-//            }
-//            System.out.println(i);
-//        });
-//        thread.start();
-//        Thread.sleep(1000);
-//        stop = true;
+        // 加 volatile 能让线程停  volatile原则
+        Thread thread = new Thread(()->{
+            int i = 0;
+            while (!stop) {
+                i++;
+            }
+            System.out.println(i);
+        });
+        thread.start();
+        Thread.sleep(1000);
+        stop = true;
 
 //        Thread threadA = new Thread(() -> {  // 锁原则
 //            synchronized (Demo.class) {
@@ -47,6 +47,6 @@ public class Demo {
 //            System.out.println(i);
 //        });
 //        i = 100;
-//        thread.start();=
+//        thread.start();
     }
 }

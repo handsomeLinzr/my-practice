@@ -16,12 +16,7 @@ public class ReentrantLockTest {
     private StampedLock stampedLock = new StampedLock();
 
     public static void main(String[] args) {
-//        try {
-//            testLock();
-//        } catch (InterruptedException e) {
-//            e.getStackTrace();
-//        }
-        testRWLock();
+        doubleRL();
     }
     public StampedLock getStampedLock() {
         return this.getStampedLock();
@@ -91,5 +86,19 @@ public class ReentrantLockTest {
                 System.out.println(test.rGetA());
             }).start();
         }
+    }
+
+    public static void doubleRL() {
+        ReentrantLockTest test = new ReentrantLockTest();
+        Thread thread1 = new Thread(() -> {
+            int i = test.rGetA();
+            System.out.println(i);
+        });
+        Thread thread2 = new Thread(() -> {
+            int i = test.rGetA();
+            System.out.println(i);
+        });
+        thread1.start();
+        thread2.start();
     }
 }

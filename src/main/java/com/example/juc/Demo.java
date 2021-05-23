@@ -1,5 +1,7 @@
 package com.example.juc;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -21,10 +23,20 @@ public class Demo {
         i ++;
     }
     public static void main(String[] args) throws InterruptedException {
-        for (int j = 0; j < 400; j++) {
-            new Thread(() -> Demo.inc()).start();
-        }
-        TimeUnit.SECONDS.sleep(1);
-        System.out.println(i); // 结果为 《=100
+
+//        for (int j = 0; j < 400; j++) {
+//            new Thread(() -> Demo.inc()).start();
+//        }
+//        TimeUnit.SECONDS.sleep(1);
+//        System.out.println(i); // 结果为 《=100
+
+//        new Thread(()->{
+//            while (i == 0) {
+//                System.out.println(1);
+//            }
+//        }).start();
+//        TimeUnit.SECONDS.sleep(1);
+//        i ++;
+        ConcurrentHashMap<String, Object> map = new ConcurrentHashMap<>(13);
     }
 }
