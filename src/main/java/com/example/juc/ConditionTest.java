@@ -13,19 +13,20 @@ public class ConditionTest {
         Lock lock = new ReentrantLock();
         Condition condition = lock.newCondition();
         Thread thread1 = new Thread(new ConditionAwait(lock, condition));
-        Thread thread2 = new Thread(new ConditionSignal(lock, condition));
-        Thread thread = new Thread(() -> {
-            int i = 1;
-            while (i++ < 999999) {
-                System.out.println("1");
-            }
-        });
-//        thread1.start();
-//        thread2.start();
-        thread.start();
+        Thread thread2 = new Thread(new ConditionAwait(lock, condition));
+//        Thread thread2 = new Thread(new ConditionSignal(lock, condition));
+//        Thread thread = new Thread(() -> {
+//            int i = 1;
+//            while (i++ < 999999) {
+//                System.out.println("1");
+//            }
+//        });
+        thread1.start();
+        thread2.start();
+//        thread.start();
 
         TimeUnit.SECONDS.sleep(1);
-        thread.interrupt();
+//        thread.interrupt();
 
     }
 }
