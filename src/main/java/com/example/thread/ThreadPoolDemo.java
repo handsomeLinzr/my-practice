@@ -12,18 +12,25 @@ import java.util.concurrent.*;
  */
 public class ThreadPoolDemo {
 
-    public static void main(String[] args) throws InterruptedException {
-//        ExecutorService service = Executors.newFixedThreadPool(3);  // 固定
-        ExecutorService service = Executors.newSingleThreadExecutor(); // 单线程
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        ExecutorService service = Executors.newFixedThreadPool(3);  // 固定
+//        ExecutorService service = Executors.newSingleThreadExecutor(); // 单线程
 //        ExecutorService service = Executors.newCachedThreadPool();  // 可调整
 //        ScheduledExecutorService service = Executors.newScheduledThreadPool(3);  // 定时任务
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 2; i++) {
             service.execute(()->{
                 System.out.println(Thread.currentThread().getName() + "-------");
             });
-//            service.schedule(()->{
+//            service.scheduleAtFixedRate(()->{
 //                System.out.println(Thread.currentThread().getName() + "----");
-//            }, 5L, TimeUnit.SECONDS);  // 延时执行
+//            }, 2L, 2, TimeUnit.SECONDS);  // 延时执行
+            Future<Object> future = service.submit(new Callable<Object>() {
+                @Override
+                public Object call() throws Exception {
+                    return "hello";
+                }
+            });
+            System.out.println(future.get());
         }
         TimeUnit.SECONDS.sleep(5);
         service.shutdown();
