@@ -1,9 +1,8 @@
-package com.example.serial;
+package com.example.serial.v1.socket;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.ConcurrentModificationException;
 
 public class User extends People implements Serializable {
 

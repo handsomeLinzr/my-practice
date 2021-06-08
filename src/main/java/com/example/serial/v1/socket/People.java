@@ -1,4 +1,4 @@
-package com.example.serial;
+package com.example.serial.v1.socket;
 
 import java.io.Serializable;
 

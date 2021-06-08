@@ -1,6 +1,4 @@
-package com.example.serial.socket;
-
-import com.example.serial.User;
+package com.example.serial.v1.socket;
 
 import java.io.IOException;
 import java.io.ObjectOutputStream;
