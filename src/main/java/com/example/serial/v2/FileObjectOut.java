@@ -7,14 +7,18 @@ import java.io.ObjectOutputStream;
 public class FileObjectOut {
 
     public static void main(String[] args) {
-        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(new File("user")))){
-            Sun user = new Sun();
-            user.setB("456");
+        try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(new FileOutputStream(new File("sum")))){
+//            Sun user = new Sun();
+//            user.setB("456");
+//
+//            User user1 = new User();
+//            user1.setName("12345");
+//            user1.setSun(user);
 
-            User user1 = new User();
-            user1.setName("12345");
-            user1.setSun(user);
-            objectOutputStream.writeObject(user1);
+            Sun sun = new Sun();
+            sun.setB("abc");
+            sun.setFatherName("father");
+            objectOutputStream.writeObject(sun);
         } catch (Exception e) {
             e.printStackTrace();
         }

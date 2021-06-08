@@ -7,8 +7,8 @@ import java.io.ObjectInputStream;
 public class FileObjectIn {
 
     public static void main(String[] args) {
-        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(new File("user")))){
-            User user = (User) objectInputStream.readObject();
+        try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream(new File("sum")))){
+            Sun user = (Sun) objectInputStream.readObject();
             System.out.println(user);
         } catch (Exception e) {
             e.printStackTrace();

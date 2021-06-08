@@ -2,7 +2,7 @@ package com.example.serial.v2;
 
 import java.io.Serializable;
 
-public class Sun implements Serializable {
+public class Sun extends Father implements Serializable {
     private static final long serialVersionUID = -5355441881670274372L;
     private String b;
 
@@ -18,6 +18,7 @@ public class Sun implements Serializable {
     public String toString() {
         return "Sun{" +
                 "b='" + b + '\'' +
+                "fatherName='" + getFatherName() + '\''+
                 '}';
     }
 }
