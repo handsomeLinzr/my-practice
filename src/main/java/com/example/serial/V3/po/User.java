@@ -10,7 +10,7 @@ import java.io.Serializable;
  * @date 2021/6/9 4:34 下午
  * @since V2.0.0
  */
-public class User {
+public class User implements Serializable{
 
     private String name;
     private int age;

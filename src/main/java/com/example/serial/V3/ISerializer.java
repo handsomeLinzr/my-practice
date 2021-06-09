@@ -1,23 +1,29 @@
 package com.example.serial.V3;
 
 /**
- * Description: 自定义序列化接口标准
- *
- * @author Linzr
- * @version V2.0.0
- * @date 2021/6/9 4:15 下午
- * @since V2.0.0
+ * 序列化接口
  */
 public interface ISerializer {
 
     /**
-     * 序列化成字节数组
+     * 序列化
      * @param t
      * @param <T>
      * @return
      */
-    <T> byte[] serializer(T t);
+    default <T> byte[] serialize(T t) {
+        throw new RuntimeException("序列化失败");
+    }
 
-    <T> T deserializer(byte[] data, Class<T> clazz);
+    /**
+     * 反序列化
+     * @param bytes
+     * @param clazz
+     * @param <T>
+     * @return
+     */
+    default <T> T deserialize(byte[] bytes, Class<T> clazz) {
+        throw new RuntimeException("反序列化失败");
+    }
 
 }

@@ -4,28 +4,24 @@ import com.example.serial.V3.po.User;
 
 import java.util.Arrays;
 
-/**
- * Description:
- *
- * @author Linzr
- * @version V2.0.0
- * @date 2021/6/9 4:31 下午
- * @since V2.0.0
- */
 public class SerializerTest {
 
     public static void main(String[] args) {
-//        ISerializer serializer = new JavaSerializer();   // java 序列化 94
-        ISerializer serializer = new XStreamSerializer();   // xml 序列化 94
+//        ISerializer serializer = new JavaSerializer();  // 94  数据大 效率低 无法跨语言
+//        ISerializer serializer = new XStreamSerializer();  // 99   可读性高 数据大
+//        ISerializer serializer = new FastjsonSerializer();  // 23   可读性高  数据较xml小  传输效率不够高，目前分布式用得多
+        ISerializer serializer = new HessianSerializer();  // 58  二进制  跨语言
         User user = new User();
         user.setName("123");
         user.setAge(22);
-        byte[] bytes = serializer.serializer(user);
+        byte[] bytes = serializer.serialize(user);
         System.out.println(bytes.length);
         System.out.println(new String(bytes));
 
-        User deserializer = serializer.deserializer(bytes, User.class);
-        System.out.println(deserializer);
+
+        User deserialize = serializer.deserialize(bytes, User.class);
+        System.out.println(deserialize);
 
     }
+
 }
