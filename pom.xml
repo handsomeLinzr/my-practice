@@ -54,6 +54,12 @@
             <artifactId>hessian</artifactId>
             <version>4.0.38</version>
         </dependency>
+        <!-- protobuf -->
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>3.7.0</version>
+        </dependency>
 
         <dependency>
             <groupId>org.openjdk.jol</groupId>
