@@ -25,7 +25,7 @@ public class SerializerTest {
 //        User deserialize = serializer.deserialize(bytes, User.class);
 //        System.out.println(deserialize);
 
-        PersonProto.Person person = PersonProto.Person.newBuilder().setAge(22).setName("AZHE").build();
+        PersonProto.Person person = PersonProto.Person.newBuilder().setAge(-286).setName("AZHE").build();
         byte[] bytes = person.toByteArray();
         System.out.println(bytes.length);  // 8
         System.out.println(Arrays.toString(bytes));

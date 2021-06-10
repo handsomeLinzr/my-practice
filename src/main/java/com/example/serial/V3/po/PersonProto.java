@@ -36,12 +36,12 @@ public final class PersonProto {
         getNameBytes();
 
     /**
-     * <code>required int32 age = 2;</code>
+     * <code>required sint32 age = 2;</code>
      * @return Whether the age field is set.
      */
     boolean hasAge();
     /**
-     * <code>required int32 age = 2;</code>
+     * <code>required sint32 age = 2;</code>
      * @return The age.
      */
     int getAge();
@@ -101,7 +101,7 @@ public final class PersonProto {
             }
             case 16: {
               bitField0_ |= 0x00000002;
-              age_ = input.readInt32();
+              age_ = input.readSInt32();
               break;
             }
             default: {
@@ -188,7 +188,7 @@ public final class PersonProto {
     public static final int AGE_FIELD_NUMBER = 2;
     private int age_;
     /**
-     * <code>required int32 age = 2;</code>
+     * <code>required sint32 age = 2;</code>
      * @return Whether the age field is set.
      */
     @java.lang.Override
@@ -196,7 +196,7 @@ public final class PersonProto {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>required int32 age = 2;</code>
+     * <code>required sint32 age = 2;</code>
      * @return The age.
      */
     @java.lang.Override
@@ -230,7 +230,7 @@ public final class PersonProto {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt32(2, age_);
+        output.writeSInt32(2, age_);
       }
       unknownFields.writeTo(output);
     }
@@ -246,7 +246,7 @@ public final class PersonProto {
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(2, age_);
+          .computeSInt32Size(2, age_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -644,7 +644,7 @@ public final class PersonProto {
 
       private int age_ ;
       /**
-       * <code>required int32 age = 2;</code>
+       * <code>required sint32 age = 2;</code>
        * @return Whether the age field is set.
        */
       @java.lang.Override
@@ -652,7 +652,7 @@ public final class PersonProto {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>required int32 age = 2;</code>
+       * <code>required sint32 age = 2;</code>
        * @return The age.
        */
       @java.lang.Override
@@ -660,7 +660,7 @@ public final class PersonProto {
         return age_;
       }
       /**
-       * <code>required int32 age = 2;</code>
+       * <code>required sint32 age = 2;</code>
        * @param value The age to set.
        * @return This builder for chaining.
        */
@@ -671,7 +671,7 @@ public final class PersonProto {
         return this;
       }
       /**
-       * <code>required int32 age = 2;</code>
+       * <code>required sint32 age = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearAge() {
@@ -748,7 +748,7 @@ public final class PersonProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\021PersonProto.proto\"#\n\006Person\022\014\n\004name\030\001 " +
-      "\002(\t\022\013\n\003age\030\002 \002(\005B\'\n\030com.example.serial.V" +
+      "\002(\t\022\013\n\003age\030\002 \002(\021B\'\n\030com.example.serial.V" +
       "3.poB\013PersonProto"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
