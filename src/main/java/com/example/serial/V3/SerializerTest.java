@@ -21,7 +21,7 @@ public class SerializerTest {
 //        byte[] bytes = serializer.serialize(user);
 //        System.out.println(bytes.length);
 //        System.out.println(new String(bytes));
-////        System.out.println(Arrays.toString(bytes));
+//        System.out.println(Arrays.toString(bytes));
 //        User deserialize = serializer.deserialize(bytes, User.class);
 //        System.out.println(deserialize);
 
