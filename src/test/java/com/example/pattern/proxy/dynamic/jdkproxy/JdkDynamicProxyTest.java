@@ -1,7 +1,7 @@
 package com.example.pattern.proxy.dynamic.jdkproxy;
 
 import org.junit.jupiter.api.Test;
-import sun.misc.ProxyGenerator;
+//import sun.misc.ProxyGenerator;
 
 import java.io.FileOutputStream;
 import java.lang.reflect.InvocationHandler;
@@ -33,10 +33,10 @@ public class JdkDynamicProxyTest {
 //        findJob.invoke(object);
 
 //         将代理类的class文件下到本地
-        byte[] bytes = ProxyGenerator.generateProxyClass("$Proxy9", new Class[]{Person.class});
-        FileOutputStream fileOutputStream = new FileOutputStream("/Users/lzr/$Proxy9.class");
-        fileOutputStream.write(bytes);
-        fileOutputStream.flush();
-        fileOutputStream.close();
+//        byte[] bytes = ProxyGenerator.generateProxyClass("$Proxy9", new Class[]{Person.class});
+//        FileOutputStream fileOutputStream = new FileOutputStream("/Users/lzr/$Proxy9.class");
+//        fileOutputStream.write(bytes);
+//        fileOutputStream.flush();
+//        fileOutputStream.close();
     }
 }
