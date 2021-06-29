@@ -1,27 +1,24 @@
 package com.example.redis;
 
-import redis.clients.jedis.HostAndPort;
-import redis.clients.jedis.JedisCluster;
-
-import java.util.HashSet;
-import java.util.Set;
+import org.redisson.Redisson;
+import org.redisson.api.RedissonClient;
+import org.redisson.config.Config;
 
 public class RedissonDemo {
 
     public static void main(String[] args) {
-
-        Set<HostAndPort> hostAndPorts = new HashSet<>(3);
-        hostAndPorts.add(new HostAndPort("120.76.130.212", 7001));
-        hostAndPorts.add(new HostAndPort("120.76.130.212", 7002));
-        hostAndPorts.add(new HostAndPort("49.235.61.31", 7004));
-        JedisCluster jedisCluster = new JedisCluster(hostAndPorts, 6000);
-
-        String name = jedisCluster.get("name");
+        Config config = new Config();
+//        config.useClusterServers().addNodeAddress(
+//                "redis://120.76.130.212:7001",
+//                "redis://120.76.130.212:7002",
+//                "redis://120.76.130.212:7003",
+//                "redis://120.76.130.212:7004",
+//                "redis://120.76.130.212:7005",
+//                "redis://120.76.130.212:7006");
+        config.useSingleServer().setAddress("redis://120.76.130.212:6379");
+        RedissonClient redissonClient = Redisson.create(config);
+        String name = redissonClient.getBucket("name").getName();
         System.out.println(name);
-
-        String hobby = jedisCluster.get("hobby");
-        System.out.println(hobby);
-
     }
 
 }

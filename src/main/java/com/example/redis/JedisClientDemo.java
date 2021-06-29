@@ -17,14 +17,15 @@ import java.util.Set;
  */
 public class JedisClientDemo {
 
+    /*
+     jedis 的使用方法和redis客户端类似
+     */
     public static void main(String[] args) {
         // 从sentinel节点触发
 //        JedisSentinelPool jedisSentinelPool = new JedisSentinelPool();
-        // 从cluster触发
+        // 从 cluster 其中一个节点触发
         Set<HostAndPort> hostAndPortSet = new HashSet<>(3);
         hostAndPortSet.add(new HostAndPort("120.76.130.212", 7001));
-        hostAndPortSet.add(new HostAndPort("120.76.130.212", 7002));
-        hostAndPortSet.add(new HostAndPort("49.235.61.31", 7004));
         JedisCluster jedisCluster = new JedisCluster(hostAndPortSet, 6000);
         jedisCluster.set("name", "azhe");
         jedisCluster.set("age", "28");
