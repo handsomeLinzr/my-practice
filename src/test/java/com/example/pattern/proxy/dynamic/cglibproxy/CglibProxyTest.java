@@ -2,7 +2,6 @@ package com.example.pattern.proxy.dynamic.cglibproxy;
 
 import net.sf.cglib.core.DebuggingClassWriter;
 import org.junit.jupiter.api.Test;
-import sun.misc.ProxyGenerator;
 
 /**
  * Description:
