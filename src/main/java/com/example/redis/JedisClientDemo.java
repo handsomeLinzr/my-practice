@@ -1,6 +1,7 @@
 package com.example.redis;
 
 import redis.clients.jedis.HostAndPort;
+import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.JedisSentinelPool;
 
@@ -24,12 +25,20 @@ public class JedisClientDemo {
         // 从sentinel节点触发
 //        JedisSentinelPool jedisSentinelPool = new JedisSentinelPool();
         // 从 cluster 其中一个节点触发
-        Set<HostAndPort> hostAndPortSet = new HashSet<>(3);
-        hostAndPortSet.add(new HostAndPort("120.76.130.212", 7001));
-        JedisCluster jedisCluster = new JedisCluster(hostAndPortSet, 6000);
-        jedisCluster.set("name", "azhe");
-        jedisCluster.set("age", "28");
-        jedisCluster.close();
+//        Set<HostAndPort> hostAndPortSet = new HashSet<>(3);
+//        hostAndPortSet.add(new HostAndPort("120.76.130.212", 7001));
+//        JedisCluster jedisCluster = new JedisCluster(hostAndPortSet, 6000);
+//        jedisCluster.set("name", "azhe");
+//        jedisCluster.set("age", "28");
+//        jedisCluster.close();
+
+
+        Jedis jedis = new Jedis("120.76.130.212");
+        jedis.auth("rong951003");
+        jedis.set("name", "hehe");
+        String name = jedis.get("name");
+        System.out.println(name);
+        jedis.close();
     }
 
 }
