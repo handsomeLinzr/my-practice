@@ -1,7 +1,5 @@
 package com.example.pattern.proxy.dbroute.db;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 /**
  * Description: 动态路由实体
  *

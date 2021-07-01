@@ -8,11 +8,12 @@ public class DistributeLockDemo implements Runnable{
     public void run() {
         DistributeLock distributeLock = new DistributeLock();
         while (true) {
-            String lock = distributeLock.acquireLock("order", 2000, 3000);
+            String lock = distributeLock.acquireLock("order", 2000, 5000);
             if (lock != null) {
                 System.out.println(Thread.currentThread().getName() + "————> 获得了锁");
                 try {
                     TimeUnit.SECONDS.sleep(2);
+//                    Thread.sleep(100);
                     if (distributeLock.releaseLock("order", lock)) {
                         System.out.println(Thread.currentThread().getName() + "————> 释放了锁");
                     }

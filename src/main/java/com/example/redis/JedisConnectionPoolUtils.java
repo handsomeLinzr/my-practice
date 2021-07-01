@@ -14,7 +14,7 @@ public class JedisConnectionPoolUtils {
         // 初始化连接池
         JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
         jedisPoolConfig.setMaxTotal(100);
-        jedisPool = new JedisPool(jedisPoolConfig, "120.76.130.212", 6379);
+        jedisPool = new JedisPool(jedisPoolConfig, "120.76.130.212", 6379, 3000, "rong951003");
     }
 
     /**
