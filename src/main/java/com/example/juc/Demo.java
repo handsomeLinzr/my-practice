@@ -2,6 +2,7 @@ package com.example.juc;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Exchanger;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -15,11 +16,7 @@ import java.util.concurrent.TimeUnit;
 public class Demo {
     private static int i = 0;  // 共享变量
     public static void inc() {
-        try {
-            Thread.sleep(1);  // 释放CPU资源，其他线程获得
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Thread.yield();  // 让出cpu资源
         i ++;
     }
     public static void main(String[] args) throws InterruptedException {
@@ -37,6 +34,27 @@ public class Demo {
 //        }).start();
 //        TimeUnit.SECONDS.sleep(1);
 //        i ++;
-        ConcurrentHashMap<String, Object> map = new ConcurrentHashMap<>(13);
+//        ConcurrentHashMap<String, Object> map = new ConcurrentHashMap<>(13);
+
+        Exchanger<String> exchanger = new Exchanger<>();
+        new Thread(() -> {
+            String s1 = "s1";
+            try {
+                s1 = exchanger.exchange(s1);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            System.out.println( Thread.currentThread().getName()+"=====>" + s1);
+        }, "s1").start();
+        new Thread(() -> {
+            String s2 = "S2";
+            try {
+                s2 = exchanger.exchange(s2);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            System.out.println( Thread.currentThread().getName()+"=====>" + s2);
+        }, "s2").start();
+
     }
 }
