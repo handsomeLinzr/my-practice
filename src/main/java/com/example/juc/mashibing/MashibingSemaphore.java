@@ -1,4 +1,4 @@
-package com.example.juc;
+package com.example.juc.mashibing;
 
 import java.util.Random;
 import java.util.concurrent.*;
