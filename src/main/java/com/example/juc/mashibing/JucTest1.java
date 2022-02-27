@@ -22,6 +22,12 @@ public class JucTest1 {
     static Thread t1 = null;
     static Thread t2 = null;
 
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println("gc");
+        super.finalize();
+    }
+
     public static void main(String[] args) {
         ThreadPoolExecutor pool = new ThreadPoolExecutor(10, 10, 10, TimeUnit.SECONDS, new SynchronousQueue<>(), (ThreadFactory) Thread::new);
         MyContain<Integer> contain = new MyContain<>();
@@ -120,6 +126,8 @@ public class JucTest1 {
             pool.shutdown();
 
         }
+
+
 
     }
 
