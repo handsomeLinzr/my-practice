@@ -21,7 +21,7 @@ public class MashibingQueue {
 
     private static final MashibingQueue INSTANCE = new MashibingQueue();
     public static void main(String[] args) {
-        INSTANCE.arrayTest();
+        INSTANCE.linkedTest();
     }
 
     /**
@@ -54,11 +54,40 @@ public class MashibingQueue {
     }
 
     /**
-     * 链表
+     * Linked 链表
      * Deque 双端队列
+     * SynchronousQueue 长度为0
+     * TransferQueue 传递
      */
     private void linkedTest() {
         LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
+        SynchronousQueue<String> synchronousQueue = new SynchronousQueue<>();
+        TransferQueue<String> transferQueue = new LinkedTransferQueue<>();
+        new Thread(()->{
+            while (true) {
+                String take = null;
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                    take = transferQueue.take();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println("poll=========>" + take);
+            }
+        }).start();
+
+        new Thread(()->{
+            int i = 0;
+            while (true) {
+                try {
+//                    TimeUnit.SECONDS.sleep(1);
+                    transferQueue.transfer("存入===》" + i++);
+                    System.out.println("=======>存入完毕");
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
 }

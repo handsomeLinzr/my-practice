@@ -54,58 +54,58 @@ public class JucTest2 {
         pool.shutdown();
 
     }
-}
 
-/**
- * 自定义同步容器
- * @param <T>
- */
-class MySynchronizedList<T> extends ArrayList<T> {
+    /**
+     * 自定义同步容器
+     * @param <T>
+     */
+    static class MySynchronizedList<T> extends ArrayList<T> {
 
-    private final LinkedList<T> list;
-    private final int maxSize;
-    private final ReentrantLock lock = new ReentrantLock();
-    Condition provider = lock.newCondition();
-    Condition consumer = lock.newCondition();
-    public MySynchronizedList(int size) {
-        this.list = new LinkedList<>();
-        this.maxSize = size;
-    }
-
-    public void put(T t) {
-        try {
-            lock.lock();
-            while (list.size() >= maxSize) {
-                provider.await();
-            }
-            list.add(t);
-            consumer.signalAll();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            lock.unlock();
+        private final LinkedList<T> list;
+        private final int maxSize;
+        private final ReentrantLock lock = new ReentrantLock();
+        Condition provider = lock.newCondition();
+        Condition consumer = lock.newCondition();
+        public MySynchronizedList(int size) {
+            this.list = new LinkedList<>();
+            this.maxSize = size;
         }
-    }
 
-    public T get() {
-        T t = null;
-        try {
-            lock.lock();
-            while (list.size() <= 0) {
-                consumer.await();
+        public void put(T t) {
+            try {
+                lock.lock();
+                while (list.size() >= maxSize) {
+                    provider.await();
+                }
+                list.add(t);
+                consumer.signalAll();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                lock.unlock();
             }
-            t = list.removeFirst();
-            provider.signalAll();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            lock.unlock();
         }
-        return t;
-    }
 
-    public int getCount() {
-        return list.size();
-    }
+        public T get() {
+            T t = null;
+            try {
+                lock.lock();
+                while (list.size() <= 0) {
+                    consumer.await();
+                }
+                t = list.removeFirst();
+                provider.signalAll();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                lock.unlock();
+            }
+            return t;
+        }
 
+        public int getCount() {
+            return list.size();
+        }
+
+    }
 }
