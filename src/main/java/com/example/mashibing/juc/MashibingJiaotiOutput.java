@@ -1,4 +1,4 @@
-package com.example.juc.mashibing;
+package com.example.mashibing.juc;
 
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.locks.Condition;

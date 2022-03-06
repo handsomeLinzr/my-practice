@@ -1,7 +1,5 @@
-package com.example.juc.mashibing;
+package com.example.mashibing.juc;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**

@@ -1,6 +1,5 @@
-package com.example.juc.mashibing;
+package com.example.mashibing.juc;
 
-import java.math.BigDecimal;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 

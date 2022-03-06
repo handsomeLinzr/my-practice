@@ -1,8 +1,6 @@
-package com.example.juc.mashibing;
+package com.example.mashibing.juc;
 
 import java.lang.ref.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**

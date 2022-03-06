@@ -1,6 +1,5 @@
-package com.example.juc.mashibing;
+package com.example.mashibing.juc;
 
-import java.util.PriorityQueue;
 import java.util.concurrent.*;
 
 /**

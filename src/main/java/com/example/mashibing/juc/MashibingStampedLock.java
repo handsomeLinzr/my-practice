@@ -1,6 +1,4 @@
-package com.example.juc.mashibing;
-
-import java.util.concurrent.locks.StampedLock;
+package com.example.mashibing.juc;
 
 /**
  * Description:

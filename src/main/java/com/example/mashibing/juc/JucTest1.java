@@ -1,11 +1,9 @@
-package com.example.juc.mashibing;
+package com.example.mashibing.juc;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.*;
-import java.util.concurrent.locks.LockSupport;
-import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * Description:
