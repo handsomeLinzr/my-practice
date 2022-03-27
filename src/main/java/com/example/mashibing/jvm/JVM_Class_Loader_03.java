@@ -1,6 +1,6 @@
 package com.example.mashibing.jvm;
 
-//import com.example.mashibing.juc.JucTest1;
+import com.example.mashibing.juc.JucTest1;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -16,7 +16,7 @@ public class JVM_Class_Loader_03 {
     public static void main(String[] args) throws Exception{
         MyClassLoader myClassLoader = new MyClassLoader();
         Class<?> clazz = myClassLoader.loadClass("com.example.mashibing.juc.JucTest1");
-        Object h = clazz.newInstance();
+        JucTest1 h = (JucTest1) clazz.newInstance();
         System.out.println(h);
         System.out.println(clazz);
         System.out.println(clazz.getClassLoader());
