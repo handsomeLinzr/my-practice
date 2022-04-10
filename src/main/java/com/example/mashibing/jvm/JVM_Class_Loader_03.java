@@ -28,12 +28,13 @@ class MyClassLoader extends ClassLoader {
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
         try {
-            File file = new File(this.getClass().getResource("/").getPath(), (name.replaceAll(".", File.separator)) + ".class");
+            File file = new File(this.getClass().getResource("/").getPath(), (name.replace(".", File.separator)) + ".class");
             FileInputStream fi = new FileInputStream(file);
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            int b;
-            while ((b = fi.read())!= 0) {
-                baos.write(b);
+            int len;
+            byte[] buffer = new byte[1024];
+            while ((len = fi.read(buffer))>= 0) {
+                baos.write(buffer, 0, len);
             }
             byte[] buf = baos.toByteArray();
             baos.close();

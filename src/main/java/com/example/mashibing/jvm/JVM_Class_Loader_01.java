@@ -1,6 +1,6 @@
 package com.example.mashibing.jvm;
 
-import sun.security.ec.SunEC;
+//import sun.security.ec.SunEC;
 
 /**
  * Description:
@@ -12,7 +12,7 @@ public class JVM_Class_Loader_01 {
 
     public static void main(String[] args) {
         System.out.println(String.class.getClassLoader());   //------Bootstrap(null)
-        System.out.println(SunEC.class.getClassLoader());  // --------AppClassLoader
+//        System.out.println(SunEC.class.getClassLoader());  // --------AppClassLoader
         System.out.println(JVM_Class_Loader_01.class.getClassLoader());  // --------AppClassLoader
         System.out.println(JVM_Class_Loader_01.class.getClassLoader().getClass().getClassLoader());  // null
     }
